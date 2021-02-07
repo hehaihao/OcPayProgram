@@ -12,6 +12,10 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        ndk{
+            abiFilters 'armeabi','armeabi-v7a','x86'
+        }
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -19,6 +23,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+
+    sourceSets {
+        main.jniLibs.srcDirs = ['libs']
     }
 }
 
@@ -32,4 +40,9 @@ dependencies {
 
     implementation 'com.github.onlychain:OcSignSdk:1.4'
     implementation 'com.github.alibaba:fastjson:1.2.73'
+    implementation 'com.lambdaworks:scrypt:1.4.0'
+    implementation 'party.52it:Bip44ForJava:1.0.0'
+    implementation 'org.web3j:core:3.3.1-android'
+
+    api 'androidx.multidex:multidex:2.0.1'
 }

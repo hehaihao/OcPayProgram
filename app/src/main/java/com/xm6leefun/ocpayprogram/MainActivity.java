@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void weekAdvancePurchase(View view) {
-
+        startActivity(new Intent(this,WeekAdvancePurchaseActivity.class));
     }
 
     /**
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void dayDistribution(View view) {
-
+        startActivity(new Intent(this,DayDistributionActivity.class));
     }
 
     /**
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void weekNodeFund(View view) {
-
+        startActivity(new Intent(this,WeekNodeFundActivity.class));
     }
 
     /**
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void dayContribution(View view) {
-
+        startActivity(new Intent(this, DayContributionActivity.class));
     }
 
     /**

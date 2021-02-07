@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:background="@color/white">
+    android:background="@color/white"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
 
     <include layout="@layout/layout_base_top_bar" />
+
+    <EditText
+        android:id="@+id/ed_paste"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="粘贴到此"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+
+        />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -18,119 +31,31 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             >
-            <!--目标1-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="10dp"
                 >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:text="目标1"
-                    />
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
                     >
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="18sp"
+                        android:text="数组格式："
                         android:textColor="@color/black"
-                        android:text="from: "
                         />
                     <TextView
-                        android:id="@+id/tv_address_from"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        tools:text="oc123456789abcdefgh"
-                        android:layout_marginLeft="5dp"
-                        />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="20dp"
-                    >
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:textColor="@color/black"
-                        android:text="to: "
-                        />
-                    <TextView
-                        android:id="@+id/tv_address_to"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        tools:text="oc123456789abcdefgh"
-                        android:layout_marginLeft="5dp"
-                        />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="20dp"
-                    >
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:textColor="@color/black"
-                        android:text="value: "
-                        />
-                    <TextView
-                        android:id="@+id/tv_value"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        tools:text="123456"
-                        android:layout_marginLeft="5dp"
-                        />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="20dp"
-                    >
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:textColor="@color/black"
-                        android:text="可用数量: "
-                        />
-                    <TextView
-                        android:id="@+id/tv_usable_num"
+                        android:id="@+id/tv_format"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:text="数组格式：[静态,活动,生态节矿70%,动态]"
                         android:textColor="@color/black"
-                        tools:text="123456"
                         android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        />
-                    <Button
-                        android:id="@+id/btn_launch_on_chain"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="发起上链"
-                        android:onClick="launchOnChain"
                         />
                 </LinearLayout>
                 <LinearLayout
@@ -138,44 +63,56 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginTop="10dp"
-                    android:layout_marginLeft="20dp"
                     >
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="18sp"
+                        android:text="目标总额："
                         android:textColor="@color/black"
-                        android:text="状态: "
                         />
                     <TextView
-                        android:id="@+id/tv_status"
-                        android:layout_width="match_parent"
+                        android:id="@+id/tv_goal_total_value"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        tools:text="余额不足/未执行/已成功/未上链"
+                        android:layout_weight="1"
+                        android:text="66666（数组之和）"
                         android:textColor="@color/black"
                         android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
                         />
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="目标地址："
+                        android:textColor="@color/black"
+                        />
+                    <TextView
+                        android:id="@+id/tv_goal_address"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="oc123456789abcdefgh"
+                        android:textColor="@color/black"
+                        android:layout_marginLeft="5dp"
+                        />
+                </LinearLayout>
+
             </LinearLayout>
 
-            <!--目标2-->
+            <!--静态-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="10dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="30dp"
                 >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:text="目标2"
-                    />
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -190,7 +127,7 @@
                         android:text="from: "
                         />
                     <TextView
-                        android:id="@+id/tv_address_from_sec"
+                        android:id="@+id/tv_address_from_static"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
@@ -203,125 +140,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginTop="10dp"
-                    android:layout_marginLeft="20dp"
-                    >
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:textColor="@color/black"
-                        android:text="to: "
-                        />
-                    <TextView
-                        android:id="@+id/tv_address_to_sec"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        tools:text="oc123456789abcdefgh"
-                        android:layout_marginLeft="5dp"
-                        />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="20dp"
-                    >
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:textColor="@color/black"
-                        android:text="value: "
-                        />
-                    <TextView
-                        android:id="@+id/tv_value_sec"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        tools:text="123456"
-                        android:layout_marginLeft="5dp"
-                        />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="20dp"
-                    >
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:textColor="@color/black"
-                        android:text="to: "
-                        />
-                    <TextView
-                        android:id="@+id/tv_address_to_thd"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        tools:text="oc123456789abcdefgh"
-                        android:layout_marginLeft="5dp"
-                        />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="20dp"
-                    >
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:textColor="@color/black"
-                        android:text="value: "
-                        />
-                    <TextView
-                        android:id="@+id/tv_value_thd"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        tools:text="123456"
-                        android:layout_marginLeft="5dp"
-                        />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="20dp"
-                    >
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:textColor="@color/black"
-                        android:text="总额: "
-                        />
-                    <TextView
-                        android:id="@+id/tv_total_value"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        tools:text="246912"
-                        android:layout_marginLeft="5dp"
-                        />
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="20dp"
                     >
                     <TextView
                         android:layout_width="wrap_content"
@@ -331,7 +149,7 @@
                         android:text="可用数量: "
                         />
                     <TextView
-                        android:id="@+id/tv_usable_num_sec"
+                        android:id="@+id/tv_usable_num_static"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -341,11 +159,11 @@
                         android:layout_marginRight="5dp"
                         />
                     <Button
-                        android:id="@+id/btn_launch_on_chain_sec"
+                        android:id="@+id/btn_on_static"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="发起上链"
-                        android:onClick="launchOnChainSec"
+                        android:text="静态"
+                        android:onClick="onStatic"
                         />
                 </LinearLayout>
                 <LinearLayout
@@ -353,7 +171,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginTop="10dp"
-                    android:layout_marginLeft="20dp"
                     >
                     <TextView
                         android:layout_width="wrap_content"
@@ -363,7 +180,7 @@
                         android:text="状态: "
                         />
                     <TextView
-                        android:id="@+id/tv_status_sec"
+                        android:id="@+id/tv_status_static"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         tools:text="余额不足/未执行/已成功/未上链"
@@ -373,6 +190,266 @@
                         />
                 </LinearLayout>
             </LinearLayout>
+
+            <!--活动-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:layout_marginTop="20dp"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:textColor="@color/black"
+                        android:text="from: "
+                        />
+                    <TextView
+                        android:id="@+id/tv_address_from_activity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        tools:text="oc123456789abcdefgh"
+                        android:layout_marginLeft="5dp"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:textColor="@color/black"
+                        android:text="可用数量: "
+                        />
+                    <TextView
+                        android:id="@+id/tv_usable_num_activity"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/black"
+                        tools:text="123456"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        />
+                    <Button
+                        android:id="@+id/btn_on_activity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="活动"
+                        android:onClick="onActivity"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:textColor="@color/black"
+                        android:text="状态: "
+                        />
+                    <TextView
+                        android:id="@+id/tv_status_activity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:text="余额不足/未执行/已成功/未上链"
+                        android:textColor="@color/black"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--生态节矿70%-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:layout_marginTop="20dp"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:textColor="@color/black"
+                        android:text="from: "
+                        />
+                    <TextView
+                        android:id="@+id/tv_address_from_mine"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        tools:text="oc123456789abcdefgh"
+                        android:layout_marginLeft="5dp"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:textColor="@color/black"
+                        android:text="可用数量: "
+                        />
+                    <TextView
+                        android:id="@+id/tv_usable_num_mine"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/black"
+                        tools:text="123456"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        />
+                    <Button
+                        android:id="@+id/btn_on_mine"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="生态节矿70%"
+                        android:onClick="onMine"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:textColor="@color/black"
+                        android:text="状态: "
+                        />
+                    <TextView
+                        android:id="@+id/tv_status_mine"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:text="余额不足/未执行/已成功/未上链"
+                        android:textColor="@color/black"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--动态-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:layout_marginTop="20dp"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:textColor="@color/black"
+                        android:text="from: "
+                        />
+                    <TextView
+                        android:id="@+id/tv_address_from_dynamic"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        tools:text="oc123456789abcdefgh"
+                        android:layout_marginLeft="5dp"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:textColor="@color/black"
+                        android:text="可用数量: "
+                        />
+                    <TextView
+                        android:id="@+id/tv_usable_num_dynamic"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/black"
+                        tools:text="123456"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        />
+                    <Button
+                        android:id="@+id/btn_on_dynamic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="动态"
+                        android:onClick="onDynamic"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="30dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:textColor="@color/black"
+                        android:text="状态: "
+                        />
+                    <TextView
+                        android:id="@+id/tv_status_dynamic"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:text="余额不足/未执行/已成功/未上链"
+                        android:textColor="@color/black"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

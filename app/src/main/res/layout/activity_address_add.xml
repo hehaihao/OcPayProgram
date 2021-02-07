@@ -29,7 +29,6 @@
                 android:layout_marginTop="50dp"
                 android:padding="15dp"
                 android:hint="请输入名称"
-                android:inputType="numberDecimal"
                 />
             <EditText
                 android:id="@+id/et_address"

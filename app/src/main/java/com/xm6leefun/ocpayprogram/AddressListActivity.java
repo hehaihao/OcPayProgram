@@ -2,6 +2,8 @@ package com.xm6leefun.ocpayprogram;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -9,8 +11,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.xm6leefun.ocpayprogram.adapter.AddressAdapter;
 import com.xm6leefun.ocpayprogram.bean.AddressBean;
+import com.xm6leefun.ocpayprogram.utils.ConstantsValue;
+import com.xm6leefun.ocpayprogram.utils.SharePreferenceUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,14 +60,33 @@ public class AddressListActivity extends AppCompatActivity {
                 startActivity(new Intent(AddressListActivity.this, AddressAddActivity.class));
             }
         });
+        AddressAddActivity.setOnClickAddAddressListener(new AddressAddActivity.OnClickAddAddressListener() {
+            @Override
+            public void backAddress(AddressBean addressBean) {
+                if (addressBeanList != null) {
+                    addressBeanList.add(addressBean);
+                    if (addressAdapter != null) {
+                        try {
+                            addressAdapter.notifyDataSetChanged();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+        });
 
         initData();
     }
 
     private void initData() {
-        addressBeanList.add(new AddressBean("aa", "oc111111111111111"));
-        addressBeanList.add(new AddressBean("bb", "oc222222222222222"));
-        addressBeanList.add(new AddressBean("cc", "oc333333333333333"));
+        String addressListJson = SharePreferenceUtil.getString(ConstantsValue.ADDRESS_LIST);
+        if (!TextUtils.isEmpty(addressListJson)) {  // 取出sp中的json
+            JSONArray objects = JSON.parseArray(addressListJson);
+            Log.e("addressList", "objects: " + objects.toJSONString());
+            addressBeanList = JSONObject.parseArray(objects.toJSONString(), AddressBean.class);
+            Log.e("addressList", "addressBeanList: " + addressBeanList.get(0).getAddress());
+        }
 
         Intent intent = getIntent();
         if (intent != null) {
@@ -72,11 +98,12 @@ public class AddressListActivity extends AppCompatActivity {
         }
     }
 
+    AddressAdapter addressAdapter;
     private void initAdapter(boolean showDelete) {
-        final AddressAdapter adapter=new AddressAdapter(AddressListActivity.this,R.layout.item_address, addressBeanList, showDelete);
+        addressAdapter = new AddressAdapter(AddressListActivity.this,R.layout.item_address, addressBeanList, showDelete);
 
         // 将适配器上的数据传递给listView
-        listView.setAdapter(adapter);
+        listView.setAdapter(addressAdapter);
 
         // 为ListView注册一个监听器，当用户点击了ListView中的任何一个子项时，就会回调onItemClick()方法
         // 在这个方法中可以通过position参数判断出用户点击的是那一个子项
@@ -91,17 +118,30 @@ public class AddressListActivity extends AppCompatActivity {
         AddressAdapter.setOnClickDeleteListener(new AddressAdapter.OnClickDeleteListener() {
             @Override
             public void onDelete(int position) {
-                addressBeanList.remove(position);
                 try {
-                    adapter.notifyDataSetChanged();
+                    addressAdapter.notifyDataSetChanged();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                Toast.makeText(AddressListActivity.this, "删除成功", Toast.LENGTH_SHORT).show();
-                // todo 对缓存进行操作
-
+                // 对缓存进行操作
+                deleteAddress(position);
+                addressBeanList.remove(position);
             }
         });
+    }
+
+    private void deleteAddress(int position) {
+        String addressListJson = SharePreferenceUtil.getString(ConstantsValue.ADDRESS_LIST);
+        List<AddressBean> addressBeanList = new ArrayList<>();
+        if (!TextUtils.isEmpty(addressListJson)) {  // 取出sp中的json
+            JSONArray objects = JSON.parseArray(addressListJson);
+            addressBeanList = JSONObject.parseArray(objects.toJSONString(), AddressBean.class);
+        }
+        addressBeanList.remove(position);
+        String addressListStr = JSON.toJSONString(addressBeanList);
+        SharePreferenceUtil.setString(ConstantsValue.ADDRESS_LIST, addressListStr);
+
+        Toast.makeText(AddressListActivity.this, "删除成功" + addressBeanList.size(), Toast.LENGTH_SHORT).show();
     }
 
     public interface OnClickBackAddressListener {

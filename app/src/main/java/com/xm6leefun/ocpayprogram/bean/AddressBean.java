@@ -12,6 +12,9 @@ public class AddressBean implements Serializable {
     private String name;
     private String address;
 
+    public AddressBean() {
+    }
+
     public AddressBean(String name, String address) {
         this.name = name;
         this.address = address;

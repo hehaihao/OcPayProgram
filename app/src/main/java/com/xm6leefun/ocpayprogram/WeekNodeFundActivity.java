@@ -38,7 +38,7 @@ public class WeekNodeFundActivity extends AppCompatActivity {
      * @param view
      */
     public void beginMerge(View view) {
-        Toast.makeText(this, "开始合并", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "开始合并", Toast.LENGTH_SHORT).show();
     }
 
     /**
@@ -46,6 +46,6 @@ public class WeekNodeFundActivity extends AppCompatActivity {
      * @param view
      */
     public void launchOnChainSec(View view) {
-        Toast.makeText(this, "发起上链", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "发起上链", Toast.LENGTH_SHORT).show();
     }
 }

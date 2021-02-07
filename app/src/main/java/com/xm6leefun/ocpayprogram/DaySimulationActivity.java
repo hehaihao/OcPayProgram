@@ -56,7 +56,7 @@ public class DaySimulationActivity extends AppCompatActivity {
      * @param view
      */
     public void launchOnChain(View view) {
-        Toast.makeText(this, "发起上链", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "发起上链", Toast.LENGTH_SHORT).show();
     }
 
     /**
@@ -64,6 +64,6 @@ public class DaySimulationActivity extends AppCompatActivity {
      * @param view
      */
     public void launchOnChainSec(View view) {
-        Toast.makeText(this, "发起上链2", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "发起上链2", Toast.LENGTH_SHORT).show();
     }
 }

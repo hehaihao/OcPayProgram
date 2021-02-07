@@ -49,6 +49,6 @@ public class DayContributionActivity extends AppCompatActivity {
      * @param view
      */
     public void launchOnChain(View view) {
-        Toast.makeText(this, "发起上链", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "发起上链", Toast.LENGTH_SHORT).show();
     }
 }

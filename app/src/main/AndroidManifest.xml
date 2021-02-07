@@ -28,6 +28,10 @@
         <activity android:name=".DayContributionActivity" />
         <activity android:name=".WeekAdvancePurchaseActivity" />
         <activity android:name=".WeekNodeFundActivity" />
+        <activity android:name=".TransferActivity" />
+        <activity android:name=".AddressListActivity" />
+        <activity android:name=".AddressAddActivity" />
+        <activity android:name=".SendActivity" />
     </application>
 
 </manifest>

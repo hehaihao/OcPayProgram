@@ -67,7 +67,7 @@ public class DayDistributionActivity extends AppCompatActivity {
      * @param view
      */
     public void onStatic(View view) {
-        Toast.makeText(this, "静态", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "静态", Toast.LENGTH_SHORT).show();
     }
 
     /**
@@ -75,7 +75,7 @@ public class DayDistributionActivity extends AppCompatActivity {
      * @param view
      */
     public void onActivity(View view) {
-        Toast.makeText(this, "活动", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "活动", Toast.LENGTH_SHORT).show();
     }
 
     /**
@@ -83,7 +83,7 @@ public class DayDistributionActivity extends AppCompatActivity {
      * @param view
      */
     public void onMine(View view) {
-        Toast.makeText(this, "生态节矿70%", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "生态节矿70%", Toast.LENGTH_SHORT).show();
     }
 
     /**
@@ -91,6 +91,6 @@ public class DayDistributionActivity extends AppCompatActivity {
      * @param view
      */
     public void onDynamic(View view) {
-        Toast.makeText(this, "动态", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "动态", Toast.LENGTH_SHORT).show();
     }
 }

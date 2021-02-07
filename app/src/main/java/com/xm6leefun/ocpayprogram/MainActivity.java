@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void other(View view) {
-
+        startActivity(new Intent(this, TransferActivity.class));
     }
 
     /**
